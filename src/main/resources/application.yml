@@ -1,0 +1,13 @@
+management:
+  security:
+    enabled: false
+
+spring:
+  datasource:
+    name: tasks
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
