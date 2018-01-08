@@ -1,5 +1,9 @@
 package com.selzlein.djeison.tasks.repository;
 
-public interface TaskRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.selzlein.djeison.tasks.domain.Task;
+
+public interface TaskRepository extends CrudRepository<Task, Long> {
 
 }
