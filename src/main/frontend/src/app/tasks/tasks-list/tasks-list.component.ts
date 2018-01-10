@@ -18,6 +18,7 @@ export class TasksListComponent implements OnInit {
       .subscribe(
         (tasks: any[]) => {
           this.tasks = tasks;
+          console.log(this.tasks);
         },
         (error) => console.log(error)
       )
@@ -28,7 +29,8 @@ export class TasksListComponent implements OnInit {
   }
 
   onTaskChange(event, task) {
-    console.log('Task has changed');
+    console.log(event.target.checked);
+    this.taskService.save(task, event.target.checked).subscribe();
   }
 
 }
