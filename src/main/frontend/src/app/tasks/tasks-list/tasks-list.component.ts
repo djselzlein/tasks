@@ -14,14 +14,19 @@ export class TasksListComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    return this.taskService.get()
+    this.taskService.get()
       .subscribe(
         (tasks: any[]) => {
           this.tasks = tasks;
           console.log(this.tasks);
         },
         (error) => console.log(error)
-      )
+    );
+
+    this.taskService.onTaskAdded.subscribe(
+      (task: Task) => this.tasks.push(task)
+    );
+
   }
 
   getDueDateLabel(task: Task){

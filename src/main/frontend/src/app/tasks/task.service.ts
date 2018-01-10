@@ -1,10 +1,12 @@
 import { Http } from "@angular/http";
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
 import { Task } from "./task.model";
 
 @Injectable()
 export class TaskService {
+
+    onTaskAdded = new EventEmitter<Task>();
 
     constructor(private http: Http){
 
@@ -16,6 +18,10 @@ export class TaskService {
 
     save(task: Task, checked: boolean) {
         task.completed = checked;
+        return this.http.post('/api/tasks/save', task).map(response => response.json());
+    }
+
+    add(task: Task) {
         return this.http.post('/api/tasks/save', task).map(response => response.json());
     }
 
