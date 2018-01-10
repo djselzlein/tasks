@@ -1,12 +1,12 @@
 export class Task {
     public id: number;
     public name: string;
-    public completed: boolean;
+    public complete: boolean;
     public dueDate: string;
 
-    constructor(name: string, completed: boolean, dueDate: string){
+    constructor(name: string, complete: boolean, dueDate: string){
         this.name = name;
-        this.completed = completed;
+        this.complete = complete;
         this.dueDate = dueDate;
     }
 }

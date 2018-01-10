@@ -17,7 +17,7 @@ export class TaskService {
     }
 
     save(task: Task, checked: boolean) {
-        task.completed = checked;
+        task.complete = checked;
         return this.http.post('/api/tasks/save', task).map(response => response.json());
     }
 

@@ -30,7 +30,7 @@ export class TasksListComponent implements OnInit {
   }
 
   getDueDateLabel(task: Task){
-    return task.completed ? 'label-success' : 'label-primary';
+    return task.complete ? 'label-success' : 'label-primary';
   }
 
   onTaskChange(event, task) {
